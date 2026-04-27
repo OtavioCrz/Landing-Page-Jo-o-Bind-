@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════
+   JOÃO PEDRO BINDÁ — GLOBAL STYLES
+   Editorial Premium / Personal Brand
+   ═══════════════════════════════════════════ */
+
+:root {
+  --navy: #0b1f33;
+  --black: #000000;
+  --white: #ffffff;
+  --offwhite: #f4f1ec;
+  --gray: #8e8e8e;
+  --gray-light: #c4c4c4;
+  --gray-dark: #3a3a3a;
+  --gray-border: #e2e0db;
+
+  --font-display: 'Glacial Indifference', 'Bahnschrift', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 32px;
+  --space-lg: 64px;
+  --space-xl: 120px;
+  --space-2xl: 180px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+ul, ol { list-style: none; }
+
+/* ═══ TYPOGRAPHY SYSTEM ═══ */
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--gray-dark);
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+
+.text-lg {
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.label {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ═══ LAYOUT ═══ */
+
+.wrap {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4vw, 80px);
+}
+
+.wrap--narrow {
+  max-width: 900px;
+}
+
+.wrap--wide {
+  max-width: 1600px;
+}
+
+/* ═══ BUTTONS ═══ */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border-radius: 0;
+  transition: all 0.5s var(--ease-out);
+  position: relative;
+}
+
+.cta--primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.cta--primary:hover {
+  background: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(11, 31, 51, 0.25);
+}
+
+.cta--outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+}
+
+.cta--outline:hover {
+  background: var(--navy);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.cta--white {
+  background: var(--white);
+  color: var(--navy);
+}
+
+.cta--white:hover {
+  background: var(--offwhite);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.cta--ghost {
+  padding: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--navy);
+  background: none;
+}
+
+.cta--ghost::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.cta--ghost:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 16px 32px;
+    font-size: 0.75rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .cta--ghost {
+    width: auto;
+    padding: 0;
+  }
+}
+
+/* ═══ DIVIDER LINE ═══ */
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--navy);
+  opacity: 0.2;
+}
+
+/* ═══ SCROLLBAR ═══ */
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--offwhite); }
+::-webkit-scrollbar-thumb { background: var(--gray-light); }
+::-webkit-scrollbar-thumb:hover { background: var(--gray); }
+
+::selection {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* ═══ VISIBILITY FOR GSAP ═══ */
+
+.reveal {
+  opacity: 0;
+  visibility: hidden;
+}

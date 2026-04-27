@@ -1,0 +1,40 @@
+.wa {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 90;
+  width: 58px;
+  height: 58px;
+  background: #25D366;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: all 0.6s var(--ease-out);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+
+.wa--show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.wa:hover {
+  background: #1fb855;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.45);
+}
+
+@media (max-width: 768px) {
+  .wa {
+    bottom: 24px;
+    right: 24px;
+    width: 54px;
+    height: 54px;
+  }
+}
